@@ -28,22 +28,34 @@ public class Main {
 
 class Solution {
     public int getSecondLargest(int[] arr) {
-        // Check if array has less than 2 elements
-        if (arr.length < 2) {
-            return -1; // Not enough elements for second largest
-        }
+        // // Check if array has less than 2 elements
+        // if (arr.length < 2) {
+        //     return -1; // Not enough elements for second largest
+        // }
 
-        // Sort the array
-        Arrays.sort(arr);
+        // // Sort the array
+        // Arrays.sort(arr);
 
-        // Traverse from the second last element to find the first distinct smaller element
-        for (int i = arr.length - 2; i >= 0; i--) {
-            if (arr[i] != arr[arr.length - 1]) {
-                return arr[i]; // Second largest element found
+        // // Traverse from the second last element to find the first distinct smaller element
+        // for (int i = arr.length - 2; i >= 0; i--) {
+        //     if (arr[i] != arr[arr.length - 1]) {
+        //         return arr[i]; // Second largest element found
+        //     }
+        // }
+
+        // // If no second largest distinct element is found
+        // return -1;
+        int lar=-1;
+        int seclar=-1;
+        for(int i=0;i<arr.length;i++){
+            if(arr[i]>lar){
+                lar=arr[i];
+            }
+        }for(int i=0;i<arr.length;i++){
+            if(arr[i]>seclar && arr[i]!=lar){
+                seclar=arr[i];
             }
         }
-
-        // If no second largest distinct element is found
-        return -1;
+        return seclar;
     }
 }
