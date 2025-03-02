@@ -16,10 +16,12 @@ class Node {
 
 
 // } Driver Code Ends
+
 /*
 class Node{
     int data;
     Node next;
+    Node(){data=0;}
 
     Node(int x){
         data = x;
@@ -31,19 +33,20 @@ class Solution {
     // Function to insert a node at the end of the linked list.
     Node insertAtEnd(Node head, int x) {
         // code here
-        Node end=new Node(x);
-        if(head==null){
-            return end;
-        }
+        Node newnode=new Node(x);
         Node temp=head;
+        if(temp==null){
+            return newnode;
+        }
         while(temp.next!=null){
             temp=temp.next;
+          
         }
-        temp.next=end;
+        temp.next=newnode;
         return head;
     }
-    
 }
+
 
 //{ Driver Code Starts.
 
