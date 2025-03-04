@@ -38,42 +38,20 @@ class Geeks {
 class Solution {
     // Function to find the next greater element for each element of the array.
     public ArrayList<Integer> nextLargerElement(int[] arr) {
-        int n=arr.length;
-        // ArrayList<Integer>result=new ArrayList<>(collections.ncopies);
-        // Stack<Integer>st=new Stack<>();
-        
-        ArrayList<Integer> result = new ArrayList<>(Collections.nCopies(n, -1)); // Initialize with -1
-        Stack<Integer> st = new Stack<>();
-
-        for (int i = 0; i < n; i++) {
-            while (!st.isEmpty() && arr[st.peek()] < arr[i]) { // Fix condition
-                int t = st.pop();
-                result.set(t, arr[i]); // Assign NGE correctly
-            }
-            st.push(i); // Push index
-        }
-
-        return result; // Return result after processing
-    }
-
-        // for(int i=0;i<n;i++){
-        //     if(st.size()==0){
-        //         st.push(i);
-        //     }else if(arr[st.top]>=arr[i]){
-        //         st.push(i);
-        //     }else{
-        //         while(st.size()>0&&arr[st.top()]<arr(i)){
-        //             int t=st.top();
-        //             st.pop();
-        //             result[t]==arr[i];
-        //         }
-        //         st.push();
-        //     }
-        // }while(st.size()>0){    
-        //     int t=st.top();
-        //     st.pop();
-        //     result[t]=-1;
-        // }retuern ans;
         // code here
-    
+        int n=arr.length;
+        ArrayList<Integer>res=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            res.add(-1);
+        }
+        for(int i=0;i<n;i++){
+            for(int j=i+1;j<n;j++){
+                if(arr[j]>arr[i]){
+                res.set(i,arr[j]);
+                break;
+                }
+            }
+        }
+        return res;
+    }
 }
